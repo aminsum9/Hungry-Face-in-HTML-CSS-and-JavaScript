@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Cursor Effect</title>
+
+    <style type="text/css">
+
+        body{
+
+            height: 700px;
+
+            width: 100%;
+
+            background: lightgreen;
+
+        }
+
+        .body{
+
+            background: purple;
+
+            height: 500px;
+
+            width: 700px;
+
+            position: absolute;
+
+            top: 10%;
+
+            left: 10%;
+
+            display: flex;
+
+            border-radius: 40%;
+
+        }
+
+        .container1{
+
+            position: relative;
+
+            top: 50%;
+
+            left: 30%;
+
+            transform: translate(-50%,-50%);
+
+            height: 100px;
+
+            width: 200px;
+
+            background: #fff;
+
+            border-radius: 50%;
+
+            overflow: hidden;
+
+        }
+
+        .container2{
+
+            position: relative;
+
+            top: 50%;
+
+            left: 40%;
+
+            transform: translate(-50%,-50%);
+
+            height: 100px;
+
+            width: 200px;
+
+            background: #fff;
+
+            border-radius: 50%;
+
+            overflow: hidden;
+
+        }
+
+        .container3{
+
+            position: relative;
+
+            top: 80%;
+
+            left: -7%;
+
+            transform: translate(-50%,-50%);
+
+            height: 100px;
+
+            width: 200px;
+
+            background: #fff;
+
+            border-radius: 50%;
+
+            overflow: hidden;
+
+        }
+
+        .kelopak{
+
+            height: 30px;
+
+            width: 100%;
+
+            background: magenta;
+
+            position: relative;
+
+        }
+
+        .titik{
+
+            height: 50px;
+
+            width: 50px;
+
+            border-radius: 50%;
+
+            background: blue;
+
+            position: relative;
+
+        }
+
+        .bibirA{
+
+            height: 50px;
+
+            width: 100%;
+
+            background: rgb(220,10,10);
+
+            position: relative;
+
+        }
+
+        .bibirB{
+
+            height: 50px;
+
+            width: 100%;
+
+            background: rgb(220,10,10);
+
+            position: relative;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="body">
+
+     <div class="container1">
+
+         <div class="kelopak"></div>
+
+        <div class="titik"></div>
+
+     </div>
+
+     <div class="container2">
+
+         <div class="kelopak"></div>
+
+        <div class="titik"></div>
+
+     </div>
+
+     <div class="container3">
+
+         <div class="bibirA"></div>
+
+         <div class="bibirB"></div>
+
+     </div>
+
+    </div>
+
+<script src="jQuery.js"></script>
+
+<script type="text/javascript">
+
+    document.body.addEventListener('mousemove', function(event){
+
+      
+
+        const xPos = Math.round((event.clientX / window.innerWidth) * 300);
+
+        const yPos = Math.round((event.clientY / window.innerHeight) * 100);
+
+
+        const body = document.getElementsByClassName('body')[0];
+
+        const kelopak = document.getElementsByClassName('kelopak');
+
+        const titik = document.getElementsByClassName('titik');
+
+        const bibirA = document.getElementsByClassName('bibirA')[0];
+
+        const bibirB = document.getElementsByClassName('bibirB')[0];
+
+      
+
+        //pergerakan kelopak
+
+        kelopak[0].style.transform = 'translate(0%,'+-yPos*2+'%)'
+
+        kelopak[1].style.transform = 'translate(0%,'+-yPos*2+'%)'
+
+
+        //pergerakan mata
+
+        titik[0].style.transform = 'translate('+xPos+'%,'+yPos/2+'%)'
+
+        titik[1].style.transform = 'translate('+xPos+'%,'+yPos/2+'%)'
+
+
+        //pergerakan bibir
+
+        bibirA.style.transform = 'translate(0,'+-yPos+'%)'
+
+        bibirB.style.transform = 'translate(0,'+yPos+'%)'
+
+
+        //pergerakan body
+
+        body.style.transform = 'translate('+xPos/5+'%, '+yPos/5+'%)'
+
+    })
+
+</script>
+
+</body>
+
+</html>
